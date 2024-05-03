@@ -49,10 +49,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    22.2%
+    20%
   </span>
   <span class="absValue">
-    (2/9)
+    (2/10)
   </span>
 </td>
 </tr>
@@ -71,10 +71,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    22.2%
+    20%
   </span>
   <span class="absValue">
-    (2/9)
+    (2/10)
   </span>
 </td>
 </tr>
@@ -88,14 +88,15 @@ Current scope:     <a href="../../index.html">all classes</a>
 <code class="sourceCode" id="sourceCode">&nbsp;package com.spareroom.shoppingcartkata;
 &nbsp;
 &nbsp;import com.spareroom.shoppingcartkata.model.ProductResponse;
+&nbsp;import com.spareroom.shoppingcartkata.service.CheckoutService;
 &nbsp;import com.spareroom.shoppingcartkata.util.DatasourceConsumerUtil;
 &nbsp;import lombok.extern.slf4j.Slf4j;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
 &nbsp;import org.springframework.boot.SpringApplication;
 &nbsp;import org.springframework.boot.autoconfigure.SpringBootApplication;
 &nbsp;
-&nbsp;
 &nbsp;import java.time.LocalDateTime;
-&nbsp;import java.util.*;
+&nbsp;import java.util.List;
 &nbsp;
 &nbsp;@SpringBootApplication
 <b class="fc">&nbsp;@Slf4j</b>
@@ -106,7 +107,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc">&nbsp;        log.info(String.format(&quot;Server started at %s&quot;, LocalDateTime.now().toString()));</b>
 &nbsp;        try {
 <b class="nc">&nbsp;            List&lt;ProductResponse&gt; list = DatasourceConsumerUtil.consumeDatasource(&quot;https://spareroom.github.io/recruitment/docs/cart-kata/data-set-1.json&quot;);</b>
-<b class="nc">&nbsp;            System.out.println(list);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;Datasource: %s%n&quot;,list);</b>
+<b class="nc">&nbsp;            System.out.printf(&quot;SubTotal: %s&quot;, new CheckoutService().getSubtotal(list));</b>
 <b class="nc">&nbsp;        } catch (Exception e) {</b>
 <b class="nc">&nbsp;            log.error(e.getMessage());</b>
 <b class="nc">&nbsp;        }</b>
@@ -136,7 +138,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-03 21:53</div>
+    <div style="float:right;">generated on 2024-05-03 23:51</div>
 </div>
 </body>
 </html>
